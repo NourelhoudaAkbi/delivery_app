@@ -1,3 +1,4 @@
+import 'package:delivery_app/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home Page')),
+      drawer: MyDrawer(),
       body: Center(
         child: Text('Home Page'),
       )
