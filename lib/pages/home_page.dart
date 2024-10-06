@@ -1,4 +1,7 @@
+import 'package:delivery_app/components/my_current_location.dart';
+import 'package:delivery_app/components/my_description_box.dart';
 import 'package:delivery_app/components/my_drawer.dart';
+import 'package:delivery_app/components/my_sliver_app_bar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,12 +15,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home Page')),
-      drawer: MyDrawer(),
-      body: Center(
-        child: Text('Home Page'),
-      )
-    );
-  }
+      return Scaffold (
+    drawer: MyDrawer(),
+    body: NestedScrollView(
+      headerSliverBuilder: (context, innerBoxIsScrolled) => [
+        MySliverAppBar(
+          title: Text('title'),
+          child: Column (
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Divider(
+                indent: 25,
+                endIndent: 25,
+                color: Theme.of(context).colorScheme.secondary,
+              ), // Divider
+              // my current location
+              const MyCurrentLocation(),
+              // description box
+              const MyDescriptionBox(),
+            ],
+          ), // Column
+        ), // MySliverAppBar
+      ],
+      body: Container (color: Colors.blue),
+    ), // NestedScrollView
+  ); // Scaffold
 }
+  }
+  
