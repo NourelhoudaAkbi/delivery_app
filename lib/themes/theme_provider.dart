@@ -5,7 +5,7 @@ import'package:delivery_app/themes/light.dart';
 
 class ThemeProvider with ChangeNotifier{
 
-  ThemeData _themeData = darkMode;
+  ThemeData _themeData = lightMode;
 
   ThemeData get themeData => _themeData;
 
