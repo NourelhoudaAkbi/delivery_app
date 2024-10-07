@@ -6,6 +6,7 @@ import 'package:delivery_app/components/my_sliver_app_bar.dart';
 import 'package:delivery_app/components/my_tab_bar.dart';
 import 'package:delivery_app/models/food.dart';
 import 'package:delivery_app/models/restaurant.dart';
+import 'package:delivery_app/pages/food_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -54,7 +55,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           itemBuilder: (context, index) {
             final food = categoryMenu[index];
             final onTap = () {};
-            return FoodTile(onTap: onTap, food: food);
+            return FoodTile(
+              onTap: () => Navigator.push(context, 
+              MaterialPageRoute(
+                builder: (context) => FoodPage(food: food,)
+                )
+                ), 
+              food: food);
             },
             );
             }).toList();
